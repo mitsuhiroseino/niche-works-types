@@ -1,2 +1,3 @@
-# niche-works-types
+# @niche-works/types
+
 niche types
