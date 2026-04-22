@@ -1,6 +1,6 @@
 {
   "name": "@niche-works/types",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "description": "",
   "keywords": [
     "typescript"
@@ -19,20 +19,17 @@
   },
   "module": "./src/index.ts",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
+    "build": "rimraf ./dist && tsc && tsx ./scripts/generatePublishPackageJson.ts",
     "check": "tsc --noEmit",
-    "dev": "vite",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json}\"",
-    "indexes": "tsx scripts/indexes.ts",
-    "preview": "vite preview",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "tidy": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json}\" --config ./prettier.tidy.config.js"
   },
   "dependencies": {
     "type-fest": "^5.5.0"
   },
   "devDependencies": {
-    "@niche-works/dev": "^0.2.0",
+    "@niche-works/dev": "^0.3.0",
     "@types/fs-extra": "^11.0.4",
     "@types/node": "^25.5.0",
     "fast-glob": "^3.3.3",
@@ -41,7 +38,6 @@
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-packagejson": "^3.0.2",
     "rimraf": "^6.1.3",
-    "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^6.0.2",
     "vitest": "^4.1.2"
