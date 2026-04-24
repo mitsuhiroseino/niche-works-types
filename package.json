@@ -19,7 +19,7 @@
   },
   "module": "./src/index.ts",
   "scripts": {
-    "build": "rimraf ./dist && tsc && tsx ./scripts/generatePublishPackageJson.ts",
+    "build": "rimraf ./dist && tsc --project tsconfig.app.json && tsx ./scripts/generatePublishPackageJson.ts",
     "check": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json}\"",
     "test": "vitest",
