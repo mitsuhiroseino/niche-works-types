@@ -35,7 +35,7 @@ export type StrictRecord = FlexibleRecord<unknown>;
  * @template P 引数の型（タプルの配列形式、デフォルトは never[]）
  * @template R 戻り値の型（デフォルトは unknown）
  */
-export type FlexibleFunction<P extends any[] = never[], R = unknown> = (
+export type SyncFunction<P extends any[] = never[], R = unknown> = (
   ...args: P
 ) => R;
 
@@ -44,14 +44,37 @@ export type FlexibleFunction<P extends any[] = never[], R = unknown> = (
  * どんな引数でも受け入れ、戻り値も `any` として自由に扱える
  * 既存のJavaScriptライブラリとの連携や、型定義を緩くする場合に使用する。
  */
-export type LooseFunction = FlexibleFunction<any[], any>;
+export type LooseFunction = SyncFunction<any[], any>;
 
 /**
  * 型安全性を最優先した関数型
  * 引数を受け取ることができず、戻り値も `unknown` となるため、
  * 使用する際には適切な型ガードや型アサーションを強制する。
  */
-export type StrictFunction = FlexibleFunction<never[], unknown>;
+export type StrictFunction = SyncFunction<never[], unknown>;
+
+/**
+ * 引数と戻り値の型を指定可能な、柔軟な関数定義のベース型
+ * @template P 引数の型（タプルの配列形式、デフォルトは never[]）
+ * @template R 戻り値の型（デフォルトは unknown）
+ */
+export type AsyncFunction<P extends any[] = never[], R = unknown> = (
+  ...args: P
+) => Promise<R>;
+
+/**
+ * 型安全性よりも柔軟性を優先した関数型
+ * どんな引数でも受け入れ、戻り値も `any` として自由に扱える
+ * 既存のJavaScriptライブラリとの連携や、型定義を緩くする場合に使用する。
+ */
+export type AsyncLooseFunction = AsyncFunction<any[], any>;
+
+/**
+ * 型安全性を最優先した関数型
+ * 引数を受け取ることができず、戻り値も `unknown` となるため、
+ * 使用する際には適切な型ガードや型アサーションを強制する。
+ */
+export type AsyncStrictFunction = AsyncFunction<never[], unknown>;
 
 /**
  * 配列の繰り返し処理時に渡す一般的なコールバック関数
