@@ -14,21 +14,50 @@ export type Empty = Nullish | '';
 export type Falsy = Empty | false | 0 | -0 | 0n | typeof NaN;
 
 /**
- *キーは文字列のみ、値の型は指定可能な汎用レコード型
+ *キーは文字列・数値・シンボル、値の型は指定可能な汎用レコード型
  */
-export type FlexibleRecord<V = unknown> = Record<string, V>;
+export type FlexibleRecord<V = unknown> = Record<PropertyKey, V>;
 
 /**
- * キーは文字列のみの汎用的なレコード型
+ * キーは文字列・数値・シンボルの汎用的なレコード型
  * 型安全性よりも柔軟性を優先する場合に使用
  */
 export type LooseRecord = FlexibleRecord<any>;
 
 /**
- * キーは文字列のみの型安全な汎用レコード型
+ * キーは文字列・数値・シンボルの型安全な汎用オブジェクト型
  * 使用時に型ガードが必要な場合に使用
  */
 export type StrictRecord = FlexibleRecord<unknown>;
+
+/**
+ *キーは文字列のみ、値の型は指定可能な汎用ディクショナリー型
+ */
+export type FlexibleDictionary<V = unknown> = Record<string, V>;
+
+/**
+ * キーは文字列のみの汎用的なディクショナリー型
+ * 型安全性よりも柔軟性を優先する場合に使用
+ */
+export type LooseDictionary = FlexibleDictionary<any>;
+
+/**
+ * キーは文字列のみの型安全な汎用ディクショナリー型
+ * 使用時に型ガードが必要な場合に使用
+ */
+export type StrictDictionary = FlexibleDictionary<unknown>;
+
+/**
+ * 汎用的な配列型
+ * 型安全性よりも柔軟性を優先する場合に使用
+ */
+export type LooseArray = any[];
+
+/**
+ * 型安全な配列型
+ * 使用時に型ガードが必要な場合に使用
+ */
+export type StrictArray = unknown[];
 
 /**
  * 引数と戻り値の型を指定可能な、柔軟な関数定義のベース型
@@ -89,16 +118,3 @@ export type KeyedIteratee<V, R> = (
   key: PropertyKey,
   data: Record<PropertyKey, V>,
 ) => R;
-
-/**
- * typeofの結果の型
- */
-export type TypeOfResult =
-  | 'undefined'
-  | 'object'
-  | 'boolean'
-  | 'number'
-  | 'bigint'
-  | 'string'
-  | 'symbol'
-  | 'function';
