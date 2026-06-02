@@ -73,14 +73,14 @@ export type SyncFunction<P extends any[] = never[], R = unknown> = (
  * どんな引数でも受け入れ、戻り値も `any` として自由に扱える
  * 既存のJavaScriptライブラリとの連携や、型定義を緩くする場合に使用する。
  */
-export type LooseFunction = SyncFunction<any[], any>;
+export type SyncLooseFunction = SyncFunction<any[], any>;
 
 /**
  * 型安全性を最優先した関数型
  * 引数を受け取ることができず、戻り値も `unknown` となるため、
  * 使用する際には適切な型ガードや型アサーションを強制する。
  */
-export type StrictFunction = SyncFunction<never[], unknown>;
+export type SyncStrictFunction = SyncFunction<never[], unknown>;
 
 /**
  * 引数と戻り値の型を指定可能な、柔軟な関数定義のベース型

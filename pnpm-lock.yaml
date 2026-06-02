@@ -13,17 +13,14 @@ importers:
         version: 5.5.0
     devDependencies:
       '@niche-works/dev':
-        specifier: ^0.5.1
-        version: 0.5.1
+        specifier: ^0.5.4
+        version: 0.5.4
       '@types/fs-extra':
         specifier: ^11.0.4
         version: 11.0.4
       '@types/node':
         specifier: ^25.5.0
         version: 25.5.0
-      '@vitest/coverage-v8':
-        specifier: ^4.1.5
-        version: 4.1.5(vitest@4.1.5)
       fast-glob:
         specifier: ^3.3.3
         version: 3.3.3
@@ -253,8 +250,8 @@ packages:
   '@napi-rs/wasm-runtime@1.1.1':
     resolution: {integrity: sha512-p64ah1M1ld8xjWv3qbvFwHiFVWrq1yFvV4f7w+mzaqiR4IlSgkqhcRdHwsGgomwzBH51sRY4NEowLxnaBjcW/A==}
 
-  '@niche-works/dev@0.5.1':
-    resolution: {integrity: sha512-GKYLhrQgWfxbRNF3gT/N3HRZpEPhu5M0POKmv3Ccb6qcDdswZwwTgl+K6k2crrZb9RYi/xC/G00C3ha6XCEdZA==}
+  '@niche-works/dev@0.5.4':
+    resolution: {integrity: sha512-dJmRNLnnwUPbCujdwI+MLnxYrYuzixDL2tcMKda3/ah8nTix7KTSrDyn3RovvDy4tBt8oGUqEoK/8WIPKQ1vIg==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1032,20 +1029,25 @@ packages:
 
 snapshots:
 
-  '@babel/helper-string-parser@7.27.1': {}
+  '@babel/helper-string-parser@7.27.1':
+    optional: true
 
-  '@babel/helper-validator-identifier@7.28.5': {}
+  '@babel/helper-validator-identifier@7.28.5':
+    optional: true
 
   '@babel/parser@7.29.3':
     dependencies:
       '@babel/types': 7.29.0
+    optional: true
 
   '@babel/types@7.29.0':
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
+    optional: true
 
-  '@bcoe/v8-coverage@1.0.2': {}
+  '@bcoe/v8-coverage@1.0.2':
+    optional: true
 
   '@emnapi/core@1.9.1':
     dependencies:
@@ -1141,7 +1143,8 @@ snapshots:
   '@esbuild/win32-x64@0.27.4':
     optional: true
 
-  '@jridgewell/resolve-uri@3.1.2': {}
+  '@jridgewell/resolve-uri@3.1.2':
+    optional: true
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
@@ -1149,6 +1152,7 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+    optional: true
 
   '@napi-rs/wasm-runtime@1.1.1':
     dependencies:
@@ -1157,7 +1161,7 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@niche-works/dev@0.5.1':
+  '@niche-works/dev@0.5.4':
     dependencies:
       fast-glob: 3.3.3
       fs-extra: 11.3.4
@@ -1331,6 +1335,7 @@ snapshots:
       std-env: 4.0.0
       tinyrainbow: 3.1.0
       vitest: 4.1.5(@types/node@25.5.0)(@vitest/coverage-v8@4.1.5)(vite@8.0.3(@types/node@25.5.0)(esbuild@0.27.4)(sass@1.99.0)(tsx@4.21.0))
+    optional: true
 
   '@vitest/expect@4.1.5':
     dependencies:
@@ -1380,6 +1385,7 @@ snapshots:
       '@jridgewell/trace-mapping': 0.3.31
       estree-walker: 3.0.3
       js-tokens: 10.0.0
+    optional: true
 
   balanced-match@4.0.4: {}
 
@@ -1489,9 +1495,11 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  has-flag@4.0.0: {}
+  has-flag@4.0.0:
+    optional: true
 
-  html-escaper@2.0.2: {}
+  html-escaper@2.0.2:
+    optional: true
 
   immutable@5.1.5: {}
 
@@ -1505,20 +1513,24 @@ snapshots:
 
   is-plain-obj@4.1.0: {}
 
-  istanbul-lib-coverage@3.2.2: {}
+  istanbul-lib-coverage@3.2.2:
+    optional: true
 
   istanbul-lib-report@3.0.1:
     dependencies:
       istanbul-lib-coverage: 3.2.2
       make-dir: 4.0.0
       supports-color: 7.2.0
+    optional: true
 
   istanbul-reports@3.2.0:
     dependencies:
       html-escaper: 2.0.2
       istanbul-lib-report: 3.0.1
+    optional: true
 
-  js-tokens@10.0.0: {}
+  js-tokens@10.0.0:
+    optional: true
 
   jsonfile@6.2.1:
     dependencies:
@@ -1586,10 +1598,12 @@ snapshots:
       '@babel/parser': 7.29.3
       '@babel/types': 7.29.0
       source-map-js: 1.2.1
+    optional: true
 
   make-dir@4.0.0:
     dependencies:
       semver: 7.7.4
+    optional: true
 
   merge2@1.4.1: {}
 
@@ -1718,6 +1732,7 @@ snapshots:
   supports-color@7.2.0:
     dependencies:
       has-flag: 4.0.0
+    optional: true
 
   tagged-tag@1.0.0: {}
 
